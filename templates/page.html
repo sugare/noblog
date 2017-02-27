@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+    {% block top %}
+        <div class="container">
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand">No Blog</a>
+
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-2">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+                    <li class="active"><a href="/archives/"><span class="glyphicon glyphicon-th"></span> 归档</a></li>
+                    <li><a href="https://github.com/sugare" target="_blank"><span class=" glyphicon glyphicon-list-alt"></span> Github</a></li>
+                </ul>
+            </div>
+            <div id="navbar-collapse-archives">
+            <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown-header" style="margin-left: -10px;">文章分类</li>
+
+                </ul>
+            </div>
+            </div>
+
+
+        </div>
+    {% end %}
+
+    {% block leftbar %}
+        <div id="post_body" class="container-fluid" style="border-radius:5px;box-shadow:2px 2px 3px;padding: 20px;background-color: #fff;">
+            <h2 class="text-center">{{ blog.title }}</h2>
+            <p class="pull-right">By: {{ blog.anthor }} On: {{ blog.created_date }}</p>
+            <br><br>
+            {% raw blog.essay %}
+
+
+            {% if blog.id == 1 %}
+                <ul class="pager">
+                    <li class="previous disabled"><a>&larr; Older</a></li>
+                    <li class="next"><a href="/page/{{ blog.id + 1 }}">Newer &rarr;</a></li>
+                </ul>
+            {% elif blog.id == latest %}
+                <ul class="pager">
+                    <li class="previous"><a href="/page/{{ blog.id - 1 }}">&larr; Older</a></li>
+                    <li class="next disabled"><a>Newer &rarr;</a></li>
+                </ul>
+            {% else %}
+                <ul class="pager">
+                    <li class="previous"><a href="/page/{{ blog.id - 1 }}">&larr; Older</a></li>
+                    <li class="next"><a href="/page/{{ blog.id + 1 }}">Newer &rarr;</a></li>
+                </ul>
+            {% end %}
+        </div>
+
+
+    {% end %}
+
+
+    {% block rightbar %}
+        <blockquote>
+            <h2 id="hot-btn">热门文章<span class="glyphicon glyphicon-hand-left visible-md-inline-block" style="padding-left: 40px;"></span></h2>
+        </blockquote>
+
+        <div id="hot" class="container-fluid">
+            {% for i in rightbarHotPool %}
+                <div class="row info-content">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h4><a href="/page/{{i.id}}">{{ i.title }}</a></h4>
+                        <p class="text-center">—— {{i.anthor}} {{ i.created_date }}</p>
+                    </div>
+                </div>
+            {% end %}
+
+            <span class="glyphicon glyphicon-triangle-top text-center btn1"></span>
+        </div>
+
+        <blockquote>
+            <h2 id="essay-dir">文章档案<span class="glyphicon glyphicon-hand-left visible-md-inline-block" style="padding-left: 40px;"></span></h2>
+        </blockquote>
+        <div id="date" class="container-fluid">
+            {% for i in rightbarDatePool %}
+                <div class="row info-content">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h4><a href="/date/{{ i.created_date }}">{{ i.created_date}} ({{ i.count }})</a></h4>
+                    </div>
+                </div>
+            {% end %}
+            <span class="glyphicon glyphicon-triangle-bottom btn2"></span>
+        </div>
+
+        <blockquote>
+            <h2>文章标签<span class="glyphicon glyphicon-hand-left visible-md-inline-block" style="padding-left: 40px;"></span></h2>
+        </blockquote>
+        <div class="container-fluid">
+        <div class="row info-content">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h4> 观点总局发布T 发生 反倒是o</h4>
+                <p class="text-center">—— admin 15 /23 /32</p>
+            </div>
+        </div>
+        </div>
+    {% end %}

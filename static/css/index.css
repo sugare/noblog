@@ -1,0 +1,198 @@
+@charset "utf-8";
+
+body {
+	color: white;
+	font-size: 14px;
+	line-height: 1.5;
+	font-family: 'Helvetica Neue', Helvetica, 'Lantinghei SC', 'Hiragino Sans GB', STHeitiSC-Light, 'Microsoft YaHei', 微软雅黑, Arial, sans-serif;
+	text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    /*background-color: #2A2A2A;*/
+    background-image: url("/static/img/bg-1.jpg");
+}
+
+.ribbon {
+    display:inline-block;
+}
+
+.ribbon:after, .ribbon:before {
+    margin-top:0.5em;
+    content: "";
+    float:left;
+    border:1.5em solid #fff;
+}
+
+.ribbon:after {
+    border-right-color:transparent;
+}
+
+.ribbon:before {
+    border-left-color:transparent;
+}
+
+.ribbon a:link, .ribbon a:visited {
+    color:#000;
+    text-decoration:none;
+    float:left;
+    height:3.5em;
+    overflow:hidden;
+}
+
+.ribbon span {
+    background:#fff;
+    display:inline-block;
+    line-height:3em;
+    padding:0 1em;
+    margin-top:0.5em;
+    position:relative;
+
+    -webkit-transition: background-color 0.2s, margin-top 0.2s;  /* Saf3.2+, Chrome */
+    -moz-transition: background-color 0.2s, margin-top 0.2s;  /* FF4+ */
+    -ms-transition: background-color 0.2s, margin-top 0.2s;  /* IE10 */
+    -o-transition: background-color 0.2s, margin-top 0.2s;  /* Opera 10.5+ */
+    transition: background-color 0.2s, margin-top 0.2s;
+}
+
+.ribbon a:hover span {
+    background:#FFD204;
+    margin-top:0;
+}
+
+.ribbon span:before {
+    content: "";
+    position:absolute;
+    top:3em;
+    left:0;
+    border-right:0.5em solid #9B8651;
+    border-bottom:0.5em solid #fff;
+}
+
+.ribbon span:after {
+    content: "";
+    position:absolute;
+    top:3em;
+    right:0;
+    border-left:0.5em solid #9B8651;
+    border-bottom:0.5em solid #fff;
+}
+
+#navbar-collapse ul {
+    margin-top: 0;
+}
+
+#header h1 {
+    text-shadow: #ccc 0 3px 0;
+    font-size: 50px;
+    font-weight: 900
+}
+.navbar-header a {
+    font-size: 36px;
+    font-weight: 600;
+    color: rgba(255,255,255,7);
+    background-color: #2A2A2A;
+
+}
+
+#_nav{
+    display: none;
+    background-color: #2A2A2A;
+}
+
+
+
+#text_title {
+    margin: 60px auto;
+}
+
+#text_title .h1 {
+    line-height: 1.5;
+    font-size: 43px;
+    font-weight: 600;
+
+}
+
+#text_title a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+}
+
+a.hidefocus {
+    outline:none
+}
+a:focus {
+     outline: none;
+}
+#text_title a:hover {
+    color: rgba(255,255,255,1);
+}
+
+
+#text_title a:nth-child(5) {
+    margin-right: -400px;
+}
+
+/*媒体查询,参考部分 Bootstrap 框架*/
+/*当页面大于 1200px 时,大屏幕,主要是 PC 端*/
+@media (min-width: 1200px) {
+
+}
+
+
+/*在 992 和 1199 像素之间的屏幕里,中等屏幕,分辨率低的 PC*/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/*在 768 和 991 像素之间的屏幕里,小屏幕,主要是 PAD*/
+@media (min-width: 768px) and (max-width: 991px) {
+
+
+
+
+}
+
+/*在 480 和 767 像素之间的屏幕里,超小屏幕,主要是手机*/
+@media (min-width: 480px) and (max-width: 767px) {
+    #header {
+        display: none;
+    }
+
+    #_nav{
+        display: block;
+    }
+    #text_title {
+        margin: 150px auto 0;
+    }
+
+    #text_title .h1 {
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    #text_title a:nth-child(5) {
+        margin-right: -200px;
+    }
+}
+
+/*在小于 480 像素的屏幕,微小屏幕,更低分辨率的手机*/
+@media (max-width: 479px) {
+    #header {
+        display: none;
+    }
+
+    #_nav{
+        display: block;
+    }
+    #text_title {
+        margin: 180px auto;
+    }
+
+    #text_title .h1 {
+        font-size: 24px;
+        line-height: 1.5;
+        font-weight: 800;
+    }
+
+        #text_title a:nth-child(5) {
+        margin-right: -100px;
+    }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/jquery.min.js"></script>
+</head>
+<style>
+        .main {
+        width:400px;height:300px;border:0px solid #0F0F0F;overflow:hidden;
+    }
+    .parent {
+        height:300px;width:1600px;position:relative;
+    }
+    .sub {
+        width:398px;
+        *width:400px;
+        height:298px;border:1px solid #00FFFF;float:left;
+    }
+    .red {
+        background-color: #00FFFF;
+    }
+</style>
+
+<body>
+<div id="post_body">
+
+
+<h4>12313123</h4>
+    <div style="border: 1px solid red; padding-top: 30px"><a href="fsdf ">fdsafsa</a></div>
+
+<p>2323232</p>
+<h4>werwrwrw</h4>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+<p>wewewrwrw</p>
+    </div>
+
+<div style="background-color: red; width: 233px; height: 232px;">
+123
+</div>
+
+<div id="navbar-collapse">
+    <ul>
+
+    </ul>
+</div>
+
+<script>
+
+
+function EssayIndex()
+{
+    var Title_h4 = $('#post_body h4');
+    if(Title_h4.length>0)
+    {
+        for(var i =0;i<Title_h4.length;i++)
+        {
+            var go_to_top = '<a name="_label' + i + '"></a>';
+            $(Title_h4[i]).before(go_to_top);
+            var li_content = '<li><a href="#_label' + i + '">' + $(Title_h4[i]).text() + '</a></li>';
+            $('#navbar-collapse ul').append(li_content);
+        }
+        content    += '</ul>';
+        content    += '</div>';
+        if($('#post_body').length != 0 )
+        {
+            $($('#post_body')[0]).prepend(content);
+        }
+    }
+}
+EssayIndex();
+</script>
+
+
+
+
+</body>
+</html>
+<script>
+
+
+
+</script>
