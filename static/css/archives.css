@@ -10,6 +10,9 @@ body {
     /*background-image: url("/static/img/bg.jpg");*/
 }
 
+.Hide {
+    display: none;
+}
 
 #navbar-collapse-archives {
     display: none;
@@ -51,6 +54,15 @@ body {
     padding: 2px 0 0 0;
     font-size: 20px;
     margin-left: -10px;
+}
+.info-content a {
+    color: #3c3c3c;
+    text-decoration:none;
+}
+.info-content a:hover {
+    color: #2A2A2A;
+    text-decoration:none;
+    font-weight: bold;
 }
 
 .info-content p {
@@ -100,6 +112,9 @@ a:focus {
 }
 .content-h4 a {
     color: #3c3c3c;
+}
+blockquote {
+    cursor: pointer;
 }
 /*媒体查询,参考部分 Bootstrap 框架*/
 /*当页面大于 1200px 时,大屏幕,主要是 PC 端*/

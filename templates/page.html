@@ -1,261 +1,109 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-    <title>No Blog</title>
+{% extends "base.html" %}
 
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/archives.css">
-</head>
-<body>
+    {% block top %}
+        <div class="container">
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand">No Blog</a>
 
-<nav id="_nav" class="navbar navbar-default navbar-fixed-top">
-    <h1 class="hide">No Blog</h1>
-    <div class="container">
-        <div class="navbar-header">
-            <a href="/" class="navbar-brand">No Blog</a>
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-2">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-            <button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-2">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-        </div>
-
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
-                <li class="active"><a href="/archives/"><span class="glyphicon glyphicon-th"></span> 归档</a></li>
-                <li><a href="https://github.com/sugare" target="_blank"><span class=" glyphicon glyphicon-list-alt"></span> Github</a></li>
-            </ul>
-        </div>
-        <div id="navbar-collapse-archives">
-        <div class="collapse navbar-collapse" id="navbar-collapse-2">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown-header" style="margin-left: -10px;">文章分类</li>
-                <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> 日期排列</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-random"></span> 类型排列</a></li>
-            </ul>
-        </div>
-        </div>
-
-
-    </div>
-</nav>
-
-<div class="jumbotron">
-    <div class="container">
-        <h1>No Blog</h1>
-        <h4>No Blog: Not Only Blog, is a responsive blog system </h4>
-    </div>
-</div>
-
-<div id="_archives">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-            <div class="container-fluid" style="border-radius:5px;box-shadow:2px 2px 3px;padding: 20px;background-color: #fff;">
-                <h2 class="text-center">{{ blog.title }}</h2>
-                <p class="pull-right">By: {{ blog.anthor }} On: {{ blog.created_date }}</p>
-                <br><br>
-
-<!--                <h4 class="content-h4"><a href="">一.docker介绍</a></h4>
-
-                <p>为充分满足企业客户在使用 DaoCloud Enterprise 平台过程中面对的多元化场景需求，DaoCloud Enterprise 平台为企业开发团队和第三方软件开发商提供了标准开放的平台模块接口 API，提供丰富的开发者文档和包括 Java、Python、JavaScript 等语言的 SDK 开发包，帮助开发团队和开发者快速开发并上线模块应用，帮助企业客户快速实现快速增长的业务功能需求。
-                    通过模块中心，DaoCloud 打造了更加开放的平台生态，使得企业开发团队和第三方开发者可以选择通过利用 DaoCloud Services 精益开发协作平台进行对接代码仓库、持续构建镜像、持续发布镜像的自动化精益开发流程，而且可以通过 DaoCloud 镜像市场来分享至更广阔的社区。
-                    <img class="img-responsive" style="margin: 0 auto" src="/static/img/info1.jpg" alt="">
-                </p>
-                <br>
-
-                <h4>二.docker安装</h4>
-                <p>
-                    目前除了官方模块之外，多家合作厂商积极与 DaoCloud 一起开发平台功能模块，通过严格认证之后的模块就可上架到模块商店，供所有平台企业客户在其 IT 平台上进行安装部署并使用。联想硬件管理和监控模块是经过联想和 DaoCloud 双方研发团队共同努力开发的认证模块，为使用联想服务器的平台客户提供更便捷的服务需求。
-                </p>
-                <br>
-                <h4>三.docker部署</h4>
-                <p>
-                    通过模块中心，DaoCloud Enterprise 应用云平台变得更加灵活和开放。
-                    系统监控中心
-                </p>
-                <br>
-                <h4>四.docker总结</h4>
-                <p>
-                    企业客户 IT 信息系统运维的场景中，及时灵活的系统告警机制对于企业系统监控是非常重要的。DaoCloud Enterprise 在 2.4 版本中全面升级了系统监控中心。现在，运维团队不仅可以通过平台收到系统告警消息提示，而且还可以灵活设置告警策略，根据告警种类和触发条件通过邮件方式通知相关运维人员。
-                </p>-->
-                {% raw blog.essay %}
             </div>
 
-                <ul class="pager">
-                    <li class="previous"><a href="#">&larr; Older</a></li>
-                    <li class="next"><a href="#">Newer &rarr;</a></li>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+                    <li class="active"><a href="/archives/"><span class="glyphicon glyphicon-th"></span> 归档</a></li>
+                    <li><a href="https://github.com/sugare" target="_blank"><span class=" glyphicon glyphicon-list-alt"></span> Github</a></li>
                 </ul>
             </div>
+            <div id="navbar-collapse-archives">
+            <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown-header" style="margin-left: -10px;">文章分类</li>
+
+                </ul>
+            </div>
+            </div>
 
 
-            <div class="col-md-3 info-right hidden-xs hidden-sm">
-                <blockquote>
-                    <h2>热门文章</h2>
-                </blockquote>
+        </div>
+    {% end %}
 
-                <div id="hot" class="container-fluid">
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4> 观点总局发布T 发生 反倒是o</h4>
-                            <p class="text-center">—— admin 15 /23 /32</p>
-                        </div>
-                    </div>
+    {% block leftbar %}
+        <div id="post_body" class="container-fluid" style="border-radius:5px;box-shadow:2px 2px 3px;padding: 20px;background-color: #fff;">
+            <h2 class="text-center">{{ blog.title }}</h2>
+            <p class="pull-right">By: {{ blog.anthor }} On: {{ blog.created_date }}</p>
+            <br><br>
+            {% raw blog.essay %}
 
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4> 观点总局发布T 发生 反倒 卡萨经济纠纷类数据佛及duos是o</h4>
-                            <p class="text-center">—— admin 15 /23 /32</p>
-                        </div>
-                    </div>
 
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4> 观点总局发布T 发生 反倒是o</h4>
-                            <p class="text-center">—— admin 15 /23 /32</p>
-                        </div>
-                    </div>
+            {% if blog.id == 1 %}
+                <ul class="pager">
+                    <li class="previous disabled"><a>&larr; Older</a></li>
+                    <li class="next"><a href="/page/{{ blog.id + 1 }}">Newer &rarr;</a></li>
+                </ul>
+            {% elif blog.id == latest %}
+                <ul class="pager">
+                    <li class="previous"><a href="/page/{{ blog.id - 1 }}">&larr; Older</a></li>
+                    <li class="next disabled"><a>Newer &rarr;</a></li>
+                </ul>
+            {% else %}
+                <ul class="pager">
+                    <li class="previous"><a href="/page/{{ blog.id - 1 }}">&larr; Older</a></li>
+                    <li class="next"><a href="/page/{{ blog.id + 1 }}">Newer &rarr;</a></li>
+                </ul>
+            {% end %}
+        </div>
 
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4> 观点总局发布T 发生 反倒是o</h4>
-                            <p class="text-center">—— admin 15 /23 /32</p>
-                        </div>
-                    </div>
 
-                    <div class="row info-content" style="display: none">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4> 观点总局发布T 发生 反倒是o</h4>
-                            <p class="text-center">—— admin 15 /23 /32</p>
-                        </div>
-                    </div>
+    {% end %}
 
-                    <div class="row info-content" style="display: none">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4> 观点总局发布T 发生 反倒是o</h4>
-                            <p class="text-center">—— admin 15 /23 /32</p>
-                        </div>
-                    </div>
-                    <span style="display: block" class="glyphicon glyphicon-triangle-bottom text-center btn1"></span>
-                </div>
 
-                <blockquote>
-                    <h2>文章档案</h2>
-                </blockquote>
-                <div id="date" class="container-fluid">
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4>2013年10月 (7)</h4>
-                        </div>
-                    </div>
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4>2013年10月 (7)</h4>
-                        </div>
-                    </div>
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4>2013年10月 (7)</h4>
-                        </div>
-                    </div>
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4>2013年10月 (7)</h4>
-                        </div>
-                    </div>
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4>2013年10月 (7)</h4>
-                        </div>
-                    </div>
-                    <div class="row info-content" style="display: none">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4>2013年10月 (7)</h4>
-                        </div>
-                    </div>
-                    <div class="row info-content" style="display: none">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4>2013年10月 (7)</h4>
-                        </div>
-                    </div>
+    {% block rightbar %}
+        <blockquote>
+            <h2 id="hot-btn">热门文章<span class="glyphicon glyphicon-hand-left visible-md-inline-block" style="padding-left: 40px;"></span></h2>
+        </blockquote>
 
-                    <span style="display: block" class="glyphicon glyphicon-triangle-bottom text-center btn2"></span>
-                </div>
-
-                <blockquote>
-                    <h2>文章标签</h2>
-                </blockquote>
-                 <div class="container-fluid">
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4> 观点总局发布T 发生 反倒是o</h4>
-                            <p class="text-center">—— admin 15 /23 /32</p>
-                        </div>
-                    </div>
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4> 观点总局发布T 发生 反倒 卡萨经济纠纷类数据佛及duos是o</h4>
-                            <p class="text-center">—— admin 15 /23 /32</p>
-                        </div>
-                    </div>
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4> 观点总局发布T 发生 反倒是o</h4>
-                            <p class="text-center">—— admin 15 /23 /32</p>
-                        </div>
-                    </div>
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4> 观点总局发布T 发生 反倒是o</h4>
-                            <p class="text-center">—— admin 15 /23 /32</p>
-                        </div>
-                    </div>
-
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4> 观点总局发布T 发生 反倒是o</h4>
-                            <p class="text-center">—— admin 15 /23 /32</p>
-                        </div>
-                    </div>
-
-                    <div class="row info-content">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <h4> 观点总局发布T 发生 反倒是o</h4>
-                            <p class="text-center">—— admin 15 /23 /32</p>
-                        </div>
+        <div id="hot" class="container-fluid">
+            {% for i in rightbarHotPool %}
+                <div class="row info-content">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h4><a href="/page/{{i.id}}">{{ i.title }}</a></h4>
+                        <p class="text-center">—— {{i.anthor}} {{ i.created_date }}</p>
                     </div>
                 </div>
+            {% end %}
+
+            <span class="glyphicon glyphicon-triangle-top text-center btn1"></span>
+        </div>
+
+        <blockquote>
+            <h2 id="essay-dir">文章档案<span class="glyphicon glyphicon-hand-left visible-md-inline-block" style="padding-left: 40px;"></span></h2>
+        </blockquote>
+        <div id="date" class="container-fluid">
+            {% for i in rightbarDatePool %}
+                <div class="row info-content">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h4><a href="/date/{{ i.created_date }}">{{ i.created_date}} ({{ i.count }})</a></h4>
+                    </div>
+                </div>
+            {% end %}
+            <span class="glyphicon glyphicon-triangle-bottom btn2"></span>
+        </div>
+
+        <blockquote>
+            <h2>文章标签<span class="glyphicon glyphicon-hand-left visible-md-inline-block" style="padding-left: 40px;"></span></h2>
+        </blockquote>
+        <div class="container-fluid">
+        <div class="row info-content">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h4> 观点总局发布T 发生 反倒是o</h4>
+                <p class="text-center">—— admin 15 /23 /32</p>
             </div>
         </div>
-    </div>
-</div>
-
-
-
-
-<script src="/static/js/jquery.min.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script>
-    $(function () {
-        $('.btn1').click(function () {
-            $('#hot > div:gt(4)').slideToggle(function () {
-                $('#hot span').toggleClass('glyphicon-triangle-top')
-            });
-        });
-
-        $('.btn2').click(function () {
-            $('#date > div:gt(5)').slideToggle(function () {
-                $('#date span').toggleClass('glyphicon-triangle-top')
-            });
-        });
-    })
-</script>
-
-
-</body>
-</html>
+        </div>
+    {% end %}

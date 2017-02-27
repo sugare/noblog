@@ -11,7 +11,8 @@ import tornado.ioloop
 import tornado.httpserver
 import tornado.options
 import os
-from orm import db,noblog,tags
+from orm import noblog,rightbarDate,rightbarHot,latest,dateData,PagerPerItem, PagerTotalItem
+from memcache_mysql import getData
 
 
 
@@ -23,8 +24,9 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r'/?', IndexHandler),
-            (r'/archives/?', ArchivesHandler),
+            (r'/archives/?(.*)', ArchivesHandler),
             (r'/page/(\d+)/?', PageHandler),
+            (r'/date/(.*)/?', DateHandler),
             (r'/.*', ErrorHandler),
         ]
 
@@ -45,11 +47,31 @@ class BaseHandler(tornado.web.RequestHandler):
 
 class IndexHandler(BaseHandler):
     def get(self, *args, **kwargs):
+        for i in range(1,10):
+            getData(i)
         self.render('index.html')
 
 class ArchivesHandler(BaseHandler):
-    def get(self, *args, **kwargs):
-        self.render('archives.html')
+    def get(self, page):
+        perPage = 8
+        totalItem = PagerTotalItem()
+        totalPage = totalItem // perPage if totalItem % perPage == 0 else totalItem // perPage + 1
+
+        if page:
+            try:
+                if int(page) <= totalPage and int(page) >= 1:
+                    dataPool = PagerPerItem(int(page), perPage)
+                    self.render('archives.html', dataPool=dataPool, rightbarDatePool=rightbarDate(),
+                            rightbarHotPool=rightbarHot(), totalPage=totalPage,currentPage=int(page))
+                else:
+                    self.write_error(404)
+            except:
+                    self.write_error(404)
+
+
+        else:
+            dataPool = PagerPerItem(1, perPage)
+            self.render('archives.html', dataPool=dataPool, rightbarDatePool=rightbarDate(), rightbarHotPool=rightbarHot(),totalPage=totalPage,currentPage=1)
 
 class ErrorHandler(tornado.web.RequestHandler):
     def get(self, *args, **kwargs):
@@ -57,10 +79,20 @@ class ErrorHandler(tornado.web.RequestHandler):
 
 class PageHandler(BaseHandler):
     def get(self, blog_id):
-        print(blog_id)
-        blog = noblog.select().where(noblog.id == blog_id).get()
-        print((blog.essay).encode('utf8'))
-        self.render('page.html',blog=blog)
+        try:
+            blog = getData(blog_id)
+        except:
+            self.write_error(404)
+        self.render('page.html',blog=blog, rightbarDatePool=rightbarDate(), rightbarHotPool=rightbarHot(),latest=latest())
+
+class DateHandler(BaseHandler):
+    def get(self, date):
+        try:
+            datePool = dateData(date)
+        except:
+            self.write_error(404)
+        self.render('date.html',datePool=datePool, rightbarDatePool=rightbarDate(), rightbarHotPool=rightbarHot(),latest=latest())
+
 
 def main():
     tornado.options.parse_command_line()

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+
+    {% block leftbar %}
+        <div class="container-fluid" style="padding: 0">
+            {% for i in datePool %}
+                <div class="row info-content">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <img src="/static/img/info1.jpg" class="img-rounded img-responsive" alt="">
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                    <h4><a href="/page/{{ i.id }}/">{{ i.title }}</a></h4>
+                    <p class="hidden-xs">
+                        摘要：观点总局发布T 反击的都是发点总点总局发布T 反击的都是发点总点总局发布T 反击的都是发点总局发布T 反击的都是发生 反倒总局发布T 反击的都是发生 反倒是o观点总局发布T 反击的都是发生 反倒是o
+                    </p>
+                    <p><strong class="hidden-xs">Tag:</strong><kbd class="hidden-xs">韵味</kbd> <kbd class="hidden-xs">开发</kbd> <strong>By:</strong> <i>{{ i.anthor }}</i><strong> On:</strong> <i>{{ i.created_date }}</i></p>
+                </div>
+                </div>
+            {% end %}
+        </div>
+    {% end %}
+
+
+    {% block rightbar %}
+        <blockquote>
+            <h2 id="hot-btn">热门文章<span class="glyphicon glyphicon-hand-left visible-md-inline-block" style="padding-left: 40px;"></span></h2>
+        </blockquote>
+
+        <div id="hot" class="container-fluid">
+            {% for i in rightbarHotPool %}
+                <div class="row info-content">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h4><a href="/page/{{i.id}}">{{ i.title }}</a></h4>
+                        <p class="text-center">—— {{i.anthor}} {{ i.created_date }}</p>
+                    </div>
+                </div>
+            {% end %}
+
+            <span class="glyphicon glyphicon-triangle-top text-center btn1"></span>
+        </div>
+
+        <blockquote>
+            <h2 id="essay-dir">文章档案<span class="glyphicon glyphicon-hand-left visible-md-inline-block" style="padding-left: 40px;"></span></h2>
+        </blockquote>
+        <div id="date" class="container-fluid">
+            {% for i in rightbarDatePool %}
+                <div class="row info-content">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h4><a href="/date/{{ i.created_date }}">{{ i.created_date}} ({{ i.count }})</a></h4>
+                    </div>
+                </div>
+            {% end %}
+            <span class="glyphicon glyphicon-triangle-bottom btn2"></span>
+        </div>
+
+        <blockquote>
+            <h2>文章标签<span class="glyphicon glyphicon-hand-left visible-md-inline-block" style="padding-left: 40px;"></span></h2>
+        </blockquote>
+        <div class="container-fluid">
+        <div class="row info-content">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h4> 观点总局发布T 发生 反倒是o</h4>
+                <p class="text-center">—— admin 15 /23 /32</p>
+            </div>
+        </div>
+        </div>
+    {% end %}
